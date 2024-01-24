@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Создание пользователя</title>
+</head>
+<body>
+<h1>Создание пользователя</h1>
+<br/>
+<form th:method="POST" th:action="@{/admin}" th:object="${user}">
+    <label for="name">Имя: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+    <br/>
+    <label for="surname">Фамилия: </label>
+    <input type="text" th:field="*{surname}" id="surname"/>
+    <br/>
+    <br/>
+    <label for="age">Возраст: </label>
+    <input type="number" th:field="*{age}" id="age"/>
+    <br/>
+    <br/>
+    <label for="phone">Телефон: </label>
+    <input type="number" th:field="*{phone}" id="phone"/>
+    <br/>
+    <br/>
+    <label for="password">Пароль: </label>
+    <input type="password" th:field="*{password}" id="password"/>
+    <br/>
+    <br/>
+    <label for="roles"><b>Роль</b></label>
+    <select multiple class="form-control form-control-sm"
+            id="roles" name="listRoles" size="2" required>
+        <option selected="selected" value="1">Администратор</option>
+        <option value="2">Пользователь</option>
+    </select>
+    <br/>
+    <br/>
+    <input type="submit" value="Создать пользователя"/>
+</form>
+<br/>
+<form th:method="GET" th:action="@{/admin}">
+    <input type="submit" value="Вернуться к списку всех пользователей"/>
+</form>
+<br/>
+<br/>
+<br/>
+<a href="/logout">Выход</a>
+</body>
+</html>

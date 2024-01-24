@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Список пользователей</title>
+</head>
+<body>
+<h1>Список пользователей</h1>
+<table border="3">
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Информация</th>
+    </tr>
+    <tr th:each="user, state : ${user}" class="row" th:classappend="${state.odd} ? 'even-row'">
+        <td th:utext="${user.getId()}" >ID</td>
+        <td th:utext="${user.getName()}" >Имя</td>
+        <td th:utext="${user.getSurname()}">Фамилия</td>
+        <td>
+            <form th:method="GET" th:action="@{/admin/{id}(id=${user.getId()})}">
+                <input type="submit" value="Посмотреть"/>
+            </form>
+        </td>
+    </tr>
+</table>
+<br/>
+<br/>
+<form th:method="GET" th:action="@{/admin/new}">
+    <input type="submit" value="Добавить нового пользователя"/>
+</form>
+<br/>
+<form th:method="GET" th:action="@{/user}">
+    <input type="submit" value="Личная страница"/>
+</form>
+<br/>
+<br/>
+<br/>
+<a href="/logout">Выход</a>
+</body>
+</html>
+

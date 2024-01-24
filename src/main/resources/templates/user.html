@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Страница пользователя</title>
+</head>
+<body>
+<h1>Страница пользователя</h1>
+<table border="3">
+<tr>
+    <th>ID</th>
+    <th>Имя</th>
+    <th>Фамилия</th>
+    <th>Возраст</th>
+    <th>Телефон</th>
+    <th>Роль</th>
+</tr>
+<tr>
+    <td th:utext="${user.getId()}">ID</td>
+    <td th:utext="${user.getName()}">Имя</td>
+    <td th:utext="${user.getSurname()}">Фамилия</td>
+    <td th:utext="${user.getAge()}">Возраст</td>
+    <td th:utext="${user.getPhone()}">Телефон</td>
+    <td ><table>
+        <tr th:each="role : ${user.getRoles()}">
+            <td th:utext="${role.getName()}">Роль</td>
+        </tr>
+    </table></td>
+</tr>
+</table>
+<br/>
+<br/>
+<form th:method="GET" th:action="@{/admin}">
+    <input type="submit" value="Вернуться к списку всех пользователей (для администратора)"/>
+</form>
+<br/>
+<br/>
+<br/>
+<a href="/logout">Выход</a>
+</body>
+</html>
