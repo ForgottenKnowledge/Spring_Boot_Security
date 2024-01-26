@@ -1,4 +1,4 @@
-package ru.kata.spring.boot_security.demo.model;
+package ru.spring.boot_security.demo.model;
 
 
 import lombok.EqualsAndHashCode;
@@ -59,6 +59,14 @@ public class User implements UserDetails {
         this.phone = phone;
         this.password = password;
         this.roles = roles;
+    }
+
+    public User(String name, String surname, Integer age, Long phone, String password) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.phone = phone;
+        this.password = password;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package ru.kata.spring.boot_security.demo.controller;
+package ru.spring.boot_security.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.kata.spring.boot_security.demo.model.User;
-import ru.kata.spring.boot_security.demo.service.RoleService;
-import ru.kata.spring.boot_security.demo.service.UserService;
+import ru.spring.boot_security.demo.model.User;
+import ru.spring.boot_security.demo.service.RoleService;
+import ru.spring.boot_security.demo.service.UserService;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
