@@ -1,5 +1,6 @@
 package ru.spring.boot_security.demo.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,7 @@ public class UserServiceImpl implements UserService {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final UserDao userDao;
 
+    @Autowired
     public UserServiceImpl(BCryptPasswordEncoder bCryptPasswordEncoder, UserDao userDao) {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.userDao = userDao;
@@ -60,8 +62,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public User getUserName(String name) {
-        return userDao.getUserName(name);
+    public User getUserByName(String name) {
+        return userDao.getUserByName(name);
     }
 
     @Override
